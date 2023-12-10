@@ -1,0 +1,16 @@
+{
+  "_checkout": "2022.6.3",
+  "_output_dir": "/Users/phw/dev/pe",
+  "_repo_dir": "/Users/phw/.cookiecutters/cookiecutter-hypermodern-python",
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "Philipp Wei\u00dfmann",
+  "copyright_year": "2023",
+  "development_status": "Development Status :: 3 - Alpha",
+  "email": "mail@philipp-weissmann.de",
+  "friendly_name": "Python Example",
+  "github_user": "derphilipp",
+  "license": "MIT",
+  "package_name": "python_example",
+  "project_name": "python_example",
+  "version": "0.0.1"
+}
