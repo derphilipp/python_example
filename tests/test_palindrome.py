@@ -33,7 +33,7 @@ into a palindrome by reversing its digits and adding it to the original number."
 # But not for the first time...
 def test_5817_is_not_turned_into_a_palindrome_by_processing_once() -> None:
     value = 5817
-    mid_value = Palindrome.turn_into_palindrome(value)
+    mid_value = Palindrome.add_reversed_number_to_itself(value)
     result = Palindrome.is_palindrome(mid_value)
     assert result is False
 
