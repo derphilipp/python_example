@@ -23,3 +23,17 @@ def append_to_database(number, result, iteration) -> None:
             writer.writerow(["Number", "Result", "Iteration"])
         # Write the data
         writer.writerow([number, result, iteration])
+
+
+def load_from_database() -> list:
+    """Reads the database file and returns a list of tuples with the data."""
+    # TODO: Rewrite this to use a generator, to work with large files
+    data = []
+    with open(FILENAME, "r", newline="") as file:
+        reader = csv.reader(file)
+        # Skip the header
+        next(reader)
+        # Read the data
+        for row in reader:
+            data.append((int(row[0]), int(row[1]), int(row[2])))
+    return data

@@ -88,8 +88,13 @@ class PalindromeUI(QWidget):
             self.iterationDisplay.setText("Invalid input")
 
     def displayData(self):
-        # Implement the logic to display data from file
-        pass
+        data = database.load_from_database()
+        self.table.setRowCount(len(data))
+        self.table.setHorizontalHeaderLabels(["Number", "Result", "Iteration"])
+        for row, (number, result, iteration) in enumerate(data):
+            self.table.setItem(row, 0, QTableWidgetItem(str(number)))
+            self.table.setItem(row, 1, QTableWidgetItem(str(result)))
+            self.table.setItem(row, 2, QTableWidgetItem(str(iteration)))
 
     def saveData(self):
         # Read from the input field, the result and the iteration field. Take those 3 numbers and append them to a "database.csv" file that resides in the same directory. if it does not exist yet, create it.
