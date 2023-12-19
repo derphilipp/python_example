@@ -9,3 +9,4 @@
 /src/*.egg-info/
 __pycache__/
 node_modules/.cache
+database.csv
