@@ -1,5 +1,8 @@
 """Command-line interface."""
+import sys
+
 import click
+import ui
 
 
 @click.command()
@@ -9,4 +12,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main(prog_name="python_example")  # pragma: no cover
+    ui.main(sys.argv)
