@@ -9,8 +9,8 @@ from PyQt6.QtWidgets import QTableWidgetItem
 from PyQt6.QtWidgets import QVBoxLayout
 from PyQt6.QtWidgets import QWidget
 
-from python_example.palindrome import Palindrome
 import python_example.database as database
+from python_example.palindrome import Palindrome
 
 
 def main(argv) -> None:

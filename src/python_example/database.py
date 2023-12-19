@@ -1,6 +1,7 @@
 import csv
 import os
 
+
 FILENAME = "database.csv"
 
 
@@ -29,7 +30,7 @@ def load_from_database() -> list:
     """Reads the database file and returns a list of tuples with the data."""
     # TODO: Rewrite this to use a generator, to work with large files
     data = []
-    with open(FILENAME, "r", newline="") as file:
+    with open(FILENAME, newline="") as file:
         reader = csv.reader(file)
         # Skip the header
         next(reader)
