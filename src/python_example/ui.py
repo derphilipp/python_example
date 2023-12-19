@@ -10,6 +10,7 @@ from PyQt6.QtWidgets import QVBoxLayout
 from PyQt6.QtWidgets import QWidget
 
 from python_example.palindrome import Palindrome
+import python_example.database as database
 
 
 def main(argv) -> None:
@@ -56,6 +57,7 @@ class PalindromeUI(QWidget):
 
         # Save button
         self.saveBtn = QPushButton("Save")
+        self.saveBtn.clicked.connect(self.saveData)
         layout.addWidget(self.saveBtn)
 
         # Display button and table
@@ -75,8 +77,11 @@ class PalindromeUI(QWidget):
         try:
             number = int(self.numberInput.text())
             if 1 <= number <= 10000:
-                calculated_palindrome = Palindrome.palindrome(number)
+                iterations, calculated_palindrome = Palindrome.run_until_is_palindrome(
+                    number
+                )
                 self.resultDisplay.setText(str(calculated_palindrome))
+                self.iterationDisplay.setText(str(iterations))
             else:
                 self.iterationDisplay.setText("Invalid input")
         except ValueError:
@@ -85,3 +90,13 @@ class PalindromeUI(QWidget):
     def displayData(self):
         # Implement the logic to display data from file
         pass
+
+    def saveData(self):
+        # Read from the input field, the result and the iteration field. Take those 3 numbers and append them to a "database.csv" file that resides in the same directory. if it does not exist yet, create it.
+        result = self.resultDisplay.text()
+        iteration = self.iterationDisplay.text()
+        number = self.numberInput.text()
+
+        # Implement the logic to save data to file
+        # Save the three values (result, iteration, number) into a csv file, called 'database.csv' and append it to the file.
+        database.append_to_database(number, result, iteration)

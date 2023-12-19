@@ -31,7 +31,8 @@ class Palindrome:
             return number
 
         # If it is not a palindrome, we run the algorithm
-        return Palindrome.run_until_is_palindrome(number)
+        _, number = Palindrome.run_until_is_palindrome(number)
+        return number
 
     @staticmethod
     def is_palindrome(number: int) -> bool:
@@ -51,11 +52,13 @@ class Palindrome:
         Runs the 'add reversed number to itself' algorithm until a palindrome is found.
         If the number is greater than max_size, it returns -1.
         """
+        iterations = 0
         while not Palindrome.is_palindrome(number):
             if number > max_size:
-                return -1
+                return iterations, -1
             number = Palindrome.add_reversed_number_to_itself(number)
-        return number
+            iterations += 1
+        return iterations, number
 
     def _validate_input(input_value: int) -> bool:
         """

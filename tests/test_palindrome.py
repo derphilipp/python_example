@@ -84,9 +84,10 @@ def test_196_does_not_turn_into_a_palindrome_in_a_reasonable_amount_of_time() ->
 
 def test_5817_can_be_turned_into_a_palindrome() -> None:
     value = 5817
-    mid_value = Palindrome.run_until_is_palindrome(value)
+    iterations, mid_value = Palindrome.run_until_is_palindrome(value)
     result = Palindrome.is_palindrome(mid_value)
     assert result is True
+    assert iterations == 2
 
 
 def test_28_can_be_turned_into_palindrome_121() -> None:
