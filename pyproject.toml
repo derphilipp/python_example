@@ -49,6 +49,10 @@ myst-parser = {version = ">=0.16.1"}
 [tool.poetry.scripts]
 python_example = "python_example.__main__:main"
 
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.1.0"
+mypy = "^1.7.1"
+
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
 tests = ["tests", "*/tests"]
