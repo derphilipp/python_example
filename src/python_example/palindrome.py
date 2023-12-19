@@ -1,8 +1,17 @@
+"""
+Palindrome example for HMS.
+This class offers methods to check for palindromes and to transform a number into a palindrome.
+"""
+
 VALID_INPUT_FROM = 1
 VALID_INPUT_TO = 10_000
 
 
 class Palindrome:
+    """
+    Palindrome example for HMS.
+    """
+
     @staticmethod
     def _reverse_number(number: int) -> int:
         return int(str(number)[::-1])
