@@ -1,5 +1,5 @@
 """Test cases for the __main__ module."""
-from python_example import palindrome
+from python_example.palindrome import Palindrome
 
 
 """
@@ -16,11 +16,55 @@ and adding it to itself until the number is a palindrome.
 
 def test_121_is_a_palindrome() -> None:
     value = 121
-    result = palindrome.Palindrome.is_palindrome(value)
+    result = Palindrome.is_palindrome(value)
     assert result is True
 
 
 def test_34543_is_a_palindrome() -> None:
     value = 34543
-    result = palindrome.Palindrome.is_palindrome(value)
+    result = Palindrome.is_palindrome(value)
     assert result is True
+
+
+""" It turns out that nearly every integer can be transformed
+into a palindrome by reversing its digits and adding it to the original number."""
+
+
+# But not for the first time...
+def test_5817_is_not_turned_into_a_palindrome_by_processing_once() -> None:
+    value = 5817
+    mid_value = Palindrome.turn_into_palindrome(value)
+    result = Palindrome.is_palindrome(mid_value)
+    assert result is False
+
+
+""" Create a class Transform that contains the method palindrome,
+ which takes a number N that is to be transformed and returns a number
+ that is the resultant palindrome from this process.
+"""
+
+
+def test_1122332211_is_already_a_palindrome() -> None:
+    """Of course if N is already a palindrome, return it without changing it."""
+    value = 1122332211
+    result = Palindrome.palindrome(value)
+    assert result == value
+
+
+"""Though it is theorized that all numbers can be transformed to palindromes in this way, some numbers do not converge in a reasonable amount of time.
+For instance, 196 has been carried out to 26,000 digits without finding a palindrome.
+So if the method finds that the resultant palindrome must be greater than 1,000,000,000,
+return the special value -1 instead."""
+
+
+def test_196_does_not_turn_into_a_palindrome_in_a_reasonable_amount_of_time() -> None:
+    value = 196
+    result = Palindrome.palindrome(value)
+    assert result == -1
+
+
+# def test_5817_can_be_turned_into_a_palindrome() -> None:
+#     value = 5817
+#     mid_value = Palindrome.run_until_is_palindrome(value)
+#     result = Palindrome.is_palindrome(mid_value)
+#     assert result is True
