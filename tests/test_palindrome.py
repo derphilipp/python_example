@@ -1,5 +1,6 @@
 """Test cases for the __main__ module."""
 import pytest
+
 from python_example.palindrome import Palindrome
 
 
