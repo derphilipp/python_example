@@ -84,4 +84,17 @@ def test_28_can_be_turned_into_palindrome_121() -> None:
     assert result == 121
 
 
+"""
+Example 2:
+N = 51
+51 + 15 = 66, a palindrome. Return 66
+"""
+
+
+def test_51_can_be_turned_into_palindrome_66() -> None:
+    value = 51
+    result = Palindrome.palindrome(value)
+    assert result == 66
+
+
 # TODO: Check for invalid input
