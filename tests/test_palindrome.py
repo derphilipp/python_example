@@ -18,3 +18,9 @@ def test_121_is_a_palindrome() -> None:
     value = 121
     result = palindrome.Palindrome.is_palindrome(value)
     assert result is True
+
+
+def test_34543_is_a_palindrome() -> None:
+    value = 34543
+    result = palindrome.Palindrome.is_palindrome(value)
+    assert result is True
