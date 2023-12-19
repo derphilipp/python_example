@@ -1,3 +1,7 @@
+VALID_INPUT_FROM = 1
+VALID_INPUT_TO = 10_000
+
+
 class Palindrome:
     def _reverse_number(number: int) -> int:
         return int(str(number)[::-1])
@@ -5,6 +9,12 @@ class Palindrome:
     # Method signature (be sure your method is public): int palindrome(int N);
     def palindrome(number: int) -> int:
         """Returns a palindrome from a given number."""
+
+        # Validate input
+        if not Palindrome._validate_input(number):
+            raise ValueError(
+                f"The input must be between {VALID_INPUT_FROM} and {VALID_INPUT_TO} inclusive."
+            )
         # If it already is a palindrome, we return it
         if Palindrome.is_palindrome(number):
             return number
@@ -32,3 +42,9 @@ class Palindrome:
                 return -1
             number = Palindrome.add_reversed_number_to_itself(number)
         return number
+
+    def _validate_input(input_value: int) -> bool:
+        """
+        N will be between 1 and 10000 inclusive.
+        """
+        return VALID_INPUT_FROM <= input_value <= VALID_INPUT_TO

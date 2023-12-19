@@ -1,4 +1,5 @@
 """Test cases for the __main__ module."""
+import pytest
 from python_example.palindrome import Palindrome
 
 
@@ -44,9 +45,9 @@ def test_5817_is_not_turned_into_a_palindrome_by_processing_once() -> None:
 """
 
 
-def test_1122332211_is_already_a_palindrome() -> None:
+def test_1221_is_already_a_palindrome() -> None:
     """Of course if N is already a palindrome, return it without changing it."""
-    value = 1122332211
+    value = 1221
     result = Palindrome.palindrome(value)
     assert result == value
 
@@ -63,8 +64,24 @@ def test_196_does_not_turn_into_a_palindrome_in_a_reasonable_amount_of_time() ->
     assert result == -1
 
 
-# def test_5817_can_be_turned_into_a_palindrome() -> None:
-#     value = 5817
-#     mid_value = Palindrome.run_until_is_palindrome(value)
-#     result = Palindrome.is_palindrome(mid_value)
-#     assert result is True
+def test_5817_can_be_turned_into_a_palindrome() -> None:
+    value = 5817
+    mid_value = Palindrome.run_until_is_palindrome(value)
+    result = Palindrome.is_palindrome(mid_value)
+    assert result is True
+
+
+"""
+N = 28
+28 + 82 = 110
+110 + 011 = 121, a palindrome. Return 121
+"""
+
+
+def test_28_can_be_turned_into_palindrome_121() -> None:
+    value = 28
+    result = Palindrome.palindrome(value)
+    assert result == 121
+
+
+# TODO: Check for invalid input
